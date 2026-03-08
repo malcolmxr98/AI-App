@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prompt Architect</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 700px;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .choice-section {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .choice-card {
+        width: 48%;
+        background: #fafafa;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: 0.2s;
+    }
+
+    .choice-card:hover {
+        border-color: #3ba4ff;
+        background: #f0f8ff;
+    }
+
+    .choice-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .choice-card h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .question-box {
+        display: none;
+        margin-top: 20px;
+    }
+
+    label {
+        font-size: 14px;
+        margin-bottom: 6px;
+        display: block;
+        font-weight: 600;
+    }
+
+    textarea {
+        width: 100%;
+        height: 80px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 8px;
+        resize: none;
+        margin-bottom: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #3ba4ff;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #55b0ff;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Prompt Architect</h1>
+
+    <!-- Step 1: Choose Personal or Professional -->
+    <div class="choice-section">
+        <div class="choice-card" onclick="showQuestions('personal')">
+            <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg" alt="Gym Image">
+            <h3>Personal</h3>
+        </div>
+
+        <div class="choice-card" onclick="showQuestions('professional')">
+            <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg" alt="Business Image">
+            <h3>Professional</h3>
+        </div>
+    </div>
+
+    <!-- Personal Questions -->
+    <div id="personalQuestions" class="question-box">
+        <label>What are your personal goals right now?</label>
+        <textarea placeholder="Example: lose weight, improve sleep, build better habits..."></textarea>
+
+        <label>What daily habits do you want to improve?</label>
+        <textarea placeholder="Example: eating healthier, staying consistent at the gym..."></textarea>
+
+        <label>What tasks do you want AI to help you with?</label>
+        <textarea placeholder="Example: tracking calories, planning workouts..."></textarea>
+
+        <button>Generate Personal Prompts</button>
+    </div>
+
+    <!-- Professional Questions -->
+    <div id="professionalQuestions" class="question-box">
+        <label>What is your profession or role?</label>
+        <textarea placeholder="Example: customer service, project manager, business owner..."></textarea>
+
+        <label>What tasks take most of your time at work?</label>
+        <textarea placeholder="Example: emails, meetings, planning, documentation..."></textarea>
+
+        <label>What work tasks do you want AI to help with?</label>
+        <textarea placeholder="Example: summarizing emails, creating reports..."></textarea>
+
+        <button>Generate Professional Prompts</button>
+    </div>
+</div>
+
+<script>
+    function showQuestions(type) {
+        document.getElementById("personalQuestions").style.display = "none";
+        document.getElementById("professionalQuestions").style.display = "none";
+
+        if (type === "personal") {
+            document.getElementById("personalQuestions").style.display = "block";
+        } else {
+            document.getElementById("professionalQuestions").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
